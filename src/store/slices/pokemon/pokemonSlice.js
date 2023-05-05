@@ -13,8 +13,14 @@ export const pokemonSlice = createSlice({
     },
     setPokemons: (state, action) => {
       console.log(action);
+      state.isLoading = false;
+      state.page = action.payload.page;
+      state.pokemons = action.payload.pokemons;
     },
   },
 });
 
+/**
+ * Nos crea acciones que podemos usar en nuestros dispatch
+ */
 export const { startLoading, setPokemons } = pokemonSlice.actions;
